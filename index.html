@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Planner</title>
+    <link rel=" stylesheet" href="/assets/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/index.html">WP</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container-fluid" id="weddingType-selector">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Select Wedding Type</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;"
+                            onclick="weddingTypeSelector(1)">
+                            <div class="card weddingType-viewer" id="weddingType1">
+                                <div class="card-body">
+                                    HINDU WEDDINGS
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;"
+                            onclick="weddingTypeSelector(2)">
+                            <div class="card weddingType-viewer" id="weddingType2">
+                                <div class="card-body">
+                                    PARSI WEDDINGS
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;"
+                            onclick="weddingTypeSelector(3)">
+                            <div class="card weddingType-viewer" id="weddingType3">
+                                <div class="card-body">
+                                    ISLAMIC WEDDINGS
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;"
+                            onclick="weddingTypeSelector(4)">
+                            <div class="card weddingType-viewer" id="weddingType4">
+                                <div class="card-body">
+                                    GUJARATI WEDDINGS
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;"
+                            onclick="weddingTypeSelector(5)">
+                            <div class="card weddingType-viewer" id="weddingType5">
+                                <div class="card-body">
+                                    PUNJABI AND SIKH WEDDINGS
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;"
+                            onclick="weddingTypeSelector(6)">
+                            <div class="card weddingType-viewer" id="weddingType6">
+                                <div class="card-body">
+                                    SOUTH INDIAN WEDDINGS
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;"
+                            onclick="weddingTypeSelector(7)">
+                            <div class="card weddingType-viewer" id="weddingType7">
+                                <div class="card-body">
+                                    MAHARASHTRIAN WEDDINGS
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;"
+                            onclick="weddingTypeSelector(8)">
+                            <div class="card weddingType-viewer" id="weddingType8">
+                                <div class="card-body">
+                                    Custom Select
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 d-none">
+                            <div class="form-group">
+                                <label for="custom-wedding-type">Enter Wedding Type</label>
+                                <input type="text" class="form-control" id="custom-wedding-type"
+                                    name="custom-wedding-type" oninput="customWeddingTypeSelector(event)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary mb-2 mt-2 next" onclick="next(event)" disabled>Next</button>
+        </div>
+        <div class="container-fluid d-none" id="location-selector">
+            <button class="btn btn-primary mb-2 mt-2" onclick="previous(event)">Previous</button>
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Select your Location</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="locationSelector(1)">
+                            <div class="card location-viewer" id="location1">
+                                <div class="card-body">
+                                    Delhi
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="locationSelector(2)">
+                            <div class="card location-viewer" id="location2">
+                                <div class="card-body">
+                                    Lucknow
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="locationSelector(3)">
+                            <div class="card location-viewer" id="location3">
+                                <div class="card-body">
+                                    Agra
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="locationSelector(4)">
+                            <div class="card location-viewer" id="location4">
+                                <div class="card-body">
+                                    Mumbai
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="locationSelector(5)">
+                            <div class="card location-viewer" id="location5">
+                                <div class="card-body">
+                                    Bangalore
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="locationSelector(6)">
+                            <div class="card location-viewer" id="location6">
+                                <div class="card-body">
+                                    Chennai
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="locationSelector(7)">
+                            <div class="card location-viewer" id="location7">
+                                <div class="card-body">
+                                    Hyderabad
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="locationSelector(8)">
+                            <div class="card location-viewer" id="location8">
+                                <div class="card-body">
+                                    Custom Select
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 d-none">
+                            <div class="form-group">
+                                <label for="custom-location">Enter Location</label>
+                                <input type="text" class="form-control" id="custom-location" name="custom-location"
+                                    oninput="customLocationSelector(event)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary mb-2 mt-2 next" onclick="next(event)" disabled>Next</button>
+        </div>
+        <div class="container-fluid d-none" id="place-selector">
+            <button class="btn btn-primary mb-2 mt-2" onclick="previous(event)">Previous</button>
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Select your place size</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;"
+                            onclick="placeSizeSelector(1)">
+                            <div class="card place-selector-viewer" id="pc1">
+                                <div class="card-body">
+                                    500x700 Square
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;"
+                            onclick="placeSizeSelector(2)">
+                            <div class="card place-selector-viewer" id="pc2">
+                                <div class="card-body">
+                                    700x900 Square
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;"
+                            onclick="placeSizeSelector(3)">
+                            <div class="card place-selector-viewer" id="pc3">
+                                <div class="card-body">
+                                    900x1100 Square
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;"
+                            onclick="placeSizeSelector(4)">
+                            <div class="card place-selector-viewer" id="pc4">
+                                <div class="card-body">
+                                    1100x1300 Square
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;"
+                            onclick="placeSizeSelector(5)">
+                            <div class="card place-selector-viewer" id="pc5">
+                                <div class="card-body">
+                                    1300x1500 Square
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;"
+                            onclick="placeSizeSelector(6)">
+                            <div class="card place-selector-viewer" id="pc6">
+                                <div class="card-body">
+                                    1500x1700 Square
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;"
+                            onclick="placeSizeSelector(7)">
+                            <div class="card place-selector-viewer" id="pc7">
+                                <div class="card-body">
+                                    1700x1900 Square
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;"
+                            onclick="placeSizeSelector(8)">
+                            <div class="card place-selector-viewer" id="pc8">
+                                <div class="card-body">
+                                    1900x2100 Square
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary mb-2 mt-2 next" onclick="next(event)" disabled>Next</button>
+        </div>
+        <div class="container-fluid d-none" id="guest-selector">
+            <button class="btn btn-primary mb-2 mt-2" onclick="previous(event)">Previous</button>
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Approx Guest</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="guestSelector(1)">
+                            <div class="card guest-viewer" id="guest1">
+                                <div class="card-body">
+                                    Less than 100
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="guestSelector(2)">
+                            <div class="card guest-viewer" id="guest2">
+                                <div class="card-body">
+                                    Less than 200
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="guestSelector(3)">
+                            <div class="card guest-viewer" id="guest3">
+                                <div class="card-body">
+                                    Less than 300
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="guestSelector(4)">
+                            <div class="card guest-viewer" id="guest4">
+                                <div class="card-body">
+                                    Less than 400
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="guestSelector(5)">
+                            <div class="card guest-viewer" id="guest5">
+                                <div class="card-body">
+                                    Less than 500
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="guestSelector(6)">
+                            <div class="card guest-viewer" id="guest6">
+                                <div class="card-body">
+                                    Less than 600
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="guestSelector(7)">
+                            <div class="card guest-viewer" id="guest7">
+                                <div class="card-body">
+                                    Less than 700
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="guestSelector(8)">
+                            <div class="card guest-viewer" id="guest8">
+                                <div class="card-body">
+                                    Less than 800
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary mb-2 mt-2 next" onclick="next(event)" disabled>Next</button>
+        </div>
+        <div class="container-fluid d-none" id="food-selector">
+            <button class="btn btn-primary mb-2 mt-2" onclick="previous(event)">Previous</button>
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Food Type</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="foodSelector(1)">
+                            <div class="card food-viewer" id="food1">
+                                <div class="card-body">
+                                    North Indian
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="foodSelector(2)">
+                            <div class="card food-viewer" id="food2">
+                                <div class="card-body">
+                                    South Indian
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="foodSelector(3)">
+                            <div class="card food-viewer" id="food3">
+                                <div class="card-body">
+                                    Punjabi
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="foodSelector(4)">
+                            <div class="card food-viewer" id="food4">
+                                <div class="card-body">
+                                    Maharashtrian
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="foodSelector(5)">
+                            <div class="card food-viewer" id="food5">
+                                <div class="card-body">
+                                    Gujrati
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="foodSelector(6)">
+                            <div class="card food-viewer" id="food6">
+                                <div class="card-body">
+                                    Kashmiri
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="foodSelector(7)">
+                            <div class="card food-viewer" id="food7">
+                                <div class="card-body">
+                                    Bengali
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="foodSelector(8)">
+                            <div class="card food-viewer" id="food8">
+                                <div class="card-body">
+                                    Custom Select
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 d-none">
+                            <div class="form-group">
+                                <label for="custom-food">Enter food Type</label>
+                                <input type="text" class="form-control" id="custom-food" name="custom-food"
+                                    oninput="customFoodSelector(event)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary mb-2 mt-2 next" onclick="next(event)" disabled>Next</button>
+        </div>
+        <div class="container-fluid d-none" id="room-selector">
+            <button class="btn btn-primary mb-2 mt-2" onclick="previous(event)">Previous</button>
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Room type required</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="roomSelector(1)">
+                            <div class="card room-viewer" id="room1">
+                                <div class="card-body">
+                                    No room required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="roomSelector(2)">
+                            <div class="card room-viewer" id="room2">
+                                <div class="card-body">
+                                    2 bed room required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="roomSelector(3)">
+                            <div class="card room-viewer" id="room3">
+                                <div class="card-body">
+                                    3 bed room required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="roomSelector(4)">
+                            <div class="card room-viewer" id="room4">
+                                <div class="card-body">
+                                    4 bed room required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="roomSelector(5)">
+                            <div class="card room-viewer" id="room5">
+                                <div class="card-body">
+                                    5 bed room required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="roomSelector(6)">
+                            <div class="card room-viewer" id="room6">
+                                <div class="card-body">
+                                    Single room required with minimum 2 bed
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="roomSelector(7)">
+                            <div class="card room-viewer" id="room7">
+                                <div class="card-body">
+                                    Joint Room Required with minimum 3 bed
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-3" style="cursor: pointer;" onclick="roomSelector(8)">
+                            <div class="card room-viewer" id="room8">
+                                <div class="card-body">
+                                    Custom Select
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 d-none">
+                            <div class="form-group">
+                                <label for="custom-room">Enter Room Type</label>
+                                <input type="text" class="form-control" id="custom-room" name="custom-room"
+                                    oninput="customRoomSelector(event)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary mb-2 mt-2 last" onclick="last(event)" disabled>Find Best Match</button>
+        </div>
+        <div class="container-fluid d-none">
+            <h2 class="text-center">Coming soon...</h2>
+        </div>
+    </div>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/index.js"></script>
+</body>
+
+</html>
