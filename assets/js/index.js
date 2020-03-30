@@ -1,112 +1,114 @@
-const placeSizeSelector = (id) => {
+const primaryBlue = '#007bff';
+
+const placeSizeSelector = (e, id) => {
     setLocalStorage('placeSelectorId', id);
-    const placeSelector = document.getElementById('place-selector');
+    const placeSelector = e.target.closest('.place-selector');
     placeSelector.querySelectorAll('.place-selector-viewer').forEach(e => {
         e.style.background = 'none';
     });
-    placeSelector.querySelector(`#pc${id}`).style.background = '#007bff';
+    e.target.parentElement.style.background = primaryBlue;
     placeSelector.querySelector('.next').disabled = false;
 };
 
-const guestSelector = (id) => {
+const guestSelector = (e, id) => {
     setLocalStorage('guest', id);
-    const guestSelector = document.getElementById('guest-selector');
+    const guestSelector = e.target.closest('.guest-selector');
     guestSelector.querySelectorAll('.guest-viewer').forEach(e => {
         e.style.background = 'none';
     });
-    guestSelector.querySelector(`#guest${id}`).style.background = '#007bff';
+    e.target.parentElement.style.background = primaryBlue;
     guestSelector.querySelector('.next').disabled = false;
 };
 
-const foodSelector = (id) => {
+const foodSelector = (e, id) => {
     setLocalStorage('food', id);
-    const foodSelector = document.getElementById('food-selector');
+    const foodSelector = e.target.closest('.food-selector');
     foodSelector.querySelectorAll('.food-viewer').forEach(e => {
         e.style.background = 'none';
     });
-    foodSelector.querySelector(`#food${id}`).style.background = '#007bff';
-    foodSelector.querySelector('#custom-food').parentElement.parentElement.classList.add('d-none');
+    e.target.parentElement.style.background = primaryBlue;
+    foodSelector.querySelector('.custom-food').parentElement.parentElement.classList.add('d-none');
     foodSelector.querySelector('.next').disabled = true;
     if (id < 8) {
         foodSelector.querySelector('.next').disabled = false;
     } else {
-        foodSelector.querySelector('#custom-food').value = '';
-        foodSelector.querySelector('#custom-food').parentElement.parentElement.classList.toggle('d-none');
+        foodSelector.querySelector('.custom-food').value = '';
+        foodSelector.querySelector('.custom-food').parentElement.parentElement.classList.toggle('d-none');
     }
 }
 
 const customFoodSelector = (e) => {
     setLocalStorage('customFood', e.target.value);
-    const foodSelector = document.getElementById('food-selector');
+    const foodSelector = e.target.closest('.food-selector');
     foodSelector.querySelector('.next').disabled = !e.target.value;
 }
 
-const roomSelector = (id) => {
+const roomSelector = (e, id) => {
     setLocalStorage('room', id);
-    const roomSelector = document.getElementById('room-selector');
+    const roomSelector = e.target.closest('.room-selector');
     roomSelector.querySelectorAll('.room-viewer').forEach(e => {
         e.style.background = 'none';
     });
-    roomSelector.querySelector(`#room${id}`).style.background = '#007bff';
-    roomSelector.querySelector('#custom-room').parentElement.parentElement.classList.add('d-none');
+    e.target.parentElement.style.background = primaryBlue;
+    roomSelector.querySelector('.custom-room').parentElement.parentElement.classList.add('d-none');
     roomSelector.querySelector('.last').disabled = true;
     if (id < 8) {
         roomSelector.querySelector('.last').disabled = false;
     } else {
-        roomSelector.querySelector('#custom-room').value = '';
-        roomSelector.querySelector('#custom-room').parentElement.parentElement.classList.toggle('d-none');
+        roomSelector.querySelector('.custom-room').value = '';
+        roomSelector.querySelector('.custom-room').parentElement.parentElement.classList.toggle('d-none');
     }
 }
 
 const customRoomSelector = (e) => {
     setLocalStorage('customRoom', e.target.value);
-    const roomSelector = document.getElementById('room-selector');
+    const roomSelector = e.target.closest('.room-selector');
     roomSelector.querySelector('.last').disabled = !e.target.value;
 }
 
-const locationSelector = (id) => {
+const locationSelector = (e, id) => {
     setLocalStorage('location', id);
-    const locationSelector = document.getElementById('location-selector');
+    const locationSelector = e.target.closest('.location-selector');
     locationSelector.querySelectorAll('.location-viewer').forEach(e => {
         e.style.background = 'none';
     });
-    locationSelector.querySelector(`#location${id}`).style.background = '#007bff';
-    locationSelector.querySelector('#custom-location').parentElement.parentElement.classList.add('d-none');
+    e.target.parentElement.style.background = primaryBlue;
+    locationSelector.querySelector('.custom-location').parentElement.parentElement.classList.add('d-none');
     locationSelector.querySelector('.next').disabled = true;
     if (id < 8) {
         locationSelector.querySelector('.next').disabled = false;
     } else {
-        locationSelector.querySelector('#custom-location').value = '';
-        locationSelector.querySelector('#custom-location').parentElement.parentElement.classList.toggle('d-none');
+        locationSelector.querySelector('.custom-location').value = '';
+        locationSelector.querySelector('.custom-location').parentElement.parentElement.classList.toggle('d-none');
     }
 }
 
 const customLocationSelector = (e) => {
     setLocalStorage('customLocation', e.target.value);
-    const locationSelector = document.getElementById('location-selector');
+    const locationSelector = e.target.closest('.location-selector');
     locationSelector.querySelector('.next').disabled = !e.target.value;
 }
 
-const weddingTypeSelector = (id) => {
+const weddingTypeSelector = (e, id) => {
     setLocalStorage('weddingType', id);
-    const weddingTypeSelector = document.getElementById('weddingType-selector');
+    const weddingTypeSelector = e.target.closest('.weddingType-selector');
     weddingTypeSelector.querySelectorAll('.weddingType-viewer').forEach(e => {
         e.style.background = 'none';
     });
-    weddingTypeSelector.querySelector(`#weddingType${id}`).style.background = '#007bff';
-    weddingTypeSelector.querySelector('#custom-wedding-type').parentElement.parentElement.classList.add('d-none');
+    e.target.parentElement.style.background = primaryBlue;
+    weddingTypeSelector.querySelector('.custom-wedding-type').parentElement.parentElement.classList.add('d-none');
     weddingTypeSelector.querySelector('.next').disabled = true;
     if (id < 8) {
         weddingTypeSelector.querySelector('.next').disabled = false;
     } else {
-        weddingTypeSelector.querySelector('#custom-wedding-type').value = '';
-        weddingTypeSelector.querySelector('#custom-wedding-type').parentElement.parentElement.classList.toggle('d-none');
+        weddingTypeSelector.querySelector('.custom-wedding-type').value = '';
+        weddingTypeSelector.querySelector('.custom-wedding-type').parentElement.parentElement.classList.toggle('d-none');
     }
 }
 
 const customWeddingTypeSelector = (e) => {
     setLocalStorage('customWeddingType', e.target.value);
-    const weddingTypeSelector = document.getElementById('weddingType-selector');
+    const weddingTypeSelector = e.target.closest('.weddingType-selector');
     weddingTypeSelector.querySelector('.next').disabled = !e.target.value;
 }
 
