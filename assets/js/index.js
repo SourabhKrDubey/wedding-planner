@@ -136,4 +136,38 @@ const previous = (e) => {
 const last = (e) => {
     e.target.parentElement.classList.toggle('d-none');
     e.target.parentElement.nextElementSibling.classList.toggle('d-none');
+    filter();
+}
+
+(function () {
+    localStorage.removeItem('wp');
+    localStorage.removeItem('wp-filter');
+})();
+
+const filter = () => {
+    const wp = JSON.parse(localStorage.getItem('wp'));
+    let high = 0;
+    let medium = 0;
+    let low = 0;
+    for (let [key, value] of Object.entries(wp)) {
+        if (value > 0 && value < 4) {
+            high += 1.5;
+        } else if (value > 3 && value < 7) {
+            medium += 1;
+        } else {
+            low += .5;
+        }
+    }
+    const final = Math.round(Math.max(high, medium, low));
+    let html = '';
+    for (let i = final; i < final + 5; i++) {
+        html += `<col class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="/assets/img/${i}.jfif" alt="" width="300" height="150"/>
+                        </div>
+                    </div>
+                 </col>`;
+    }
+    document.getElementsByClassName('filter')[0].innerHTML = html;
 }
